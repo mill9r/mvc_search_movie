@@ -55,7 +55,7 @@ class View {
         }
     }
 
-    searchText() {
+    getSearchText() {
         return this.input.value;
     }
 
@@ -67,8 +67,8 @@ class View {
         this.form.addEventListener('submit', event => {
             event.preventDefault();
 
-            if (this.searchText()) {
-                handler(this.searchText());
+            if (this.getSearchText()) {
+                handler(this.getSearchText());
                 this.resetInput();
             }
         })
