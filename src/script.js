@@ -9,7 +9,6 @@ class Model {
 
     getMovies(search) {
         this.api.sendGetRequest(`${this.path}?search=${search}&searchBy=title`)
-            .then(response => response.json())
             .then(data => {
                 this.onSearchMovieChanged(Utils.extractDataFields(data.data,'title'))
             })
@@ -96,8 +95,8 @@ class Controller {
         this.model = model;
         this.view = view;
 
-        this.view.bindSearch(this.handleSearchTitle)
-        this.model.bindMoviesSearchUpdate(this.onMoviesChanged)
+        this.view.bindSearch(this.handleSearchTitle);
+        this.model.bindMoviesSearchUpdate(this.onMoviesChanged);
     }
 
     onMoviesChanged = movies => {
@@ -116,7 +115,7 @@ class Api {
     }
 
     sendGetRequest(path) {
-        return fetch(this.baseUrl + path);
+        return fetch(this.baseUrl + path).then(response => response.json());
     }
 
 }
