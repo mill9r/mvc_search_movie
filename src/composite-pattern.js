@@ -121,10 +121,6 @@ class List extends Composite {
         return this.list.filter(item => item.getHtml().id === id)[0];
     }
 
-    getElement() {
-        return this.element;
-    }
-
     getHtml() {
         let items = this.list.map(item => {
             return item.getHtml();

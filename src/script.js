@@ -29,10 +29,9 @@ class View {
     }
 
     render(movies = []) {
-        console.log(this.movies.getElement().firstChild)
-        while (this.movies.getElement().firstChild) {
-            this.movies.getElement().removeChild(this.movies.getElement().firstChild);
-            this.movies.remove(this.movies.getElement().id);
+        while (this.movies.getHtml().firstChild) {
+            this.movies.getHtml().removeChild(this.movies.getHtml().firstChild);
+            this.movies.remove(this.movies.getHtml().id);
         }
 
         if (movies.length === 0) {
